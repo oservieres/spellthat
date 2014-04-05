@@ -1,9 +1,11 @@
 package spellthat.activity;
 
+
+import spellthat.entity.Theme;
+
 import com.example.spellthat.R;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +14,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-import android.os.Build;
+import android.widget.TextView;
 
 public class SpellingActivity extends ActionBarActivity {
 
+	private String inputString;
+	private Theme currentTheme; 
+	
+	public Theme getCurrentTheme() {
+		return currentTheme;
+	}
+	
+	public String getInputString() {
+		return inputString;
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_spelling);
+		
+		Intent intent = getIntent();
+		inputString = intent.getStringExtra(MainActivity.EXTRA_INPUT_STRING);
+		currentTheme = intent.getParcelableExtra(MainActivity.EXTRA_THEME);
 
+		setContentView(R.layout.activity_spelling);
+		
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+					                   .add(R.id.container, new PlaceholderFragment())
+					                   .commit();
 		}
 	}
 
@@ -58,11 +76,17 @@ public class SpellingActivity extends ActionBarActivity {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			Intent intent = getActivity().getIntent();
-			String message = intent.getStringExtra(MainActivity.EXTRA_INPUT_STRING);
-
-			Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT/Toast.LENGTH_LONG).show();
 			View rootView = inflater.inflate(R.layout.fragment_spelling, container, false);
+			SpellingActivity activity = (SpellingActivity)getActivity(); 
+			TextView title = (TextView)rootView.findViewById(R.id.activity_title);
+			title.setText(
+				"\"" +
+				activity.getInputString()
+				+ "\" épelé avec le thème \""
+				+ activity.getCurrentTheme().getLabel()
+				+ "\""
+			);
+			
 			return rootView;
 		}
 	}
