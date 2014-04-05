@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dictionary>
+    <theme id="1" label="Prénoms ridicules">
+        <word letter="a">Anatole</word>
+        <word letter="b">Bignou</word>
+    </theme>
+    <theme id="2" label="Expressions du sud">
+        <word letter="a">Abruti</word>
+        <word letter="b">Boulègue</word>
+        <word letter="c">Caguer</word>
+    </theme>
+</dictionary>
