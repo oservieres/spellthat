@@ -25,8 +25,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import spellthat.entity.Theme;
 
 import com.example.spellthat.R;
@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity {
 	
 	public final static String EXTRA_THEME_ID = "com.example.spellthat.THEME_ID";
 	public final static String EXTRA_THEME_LABEL = "com.example.spellthat.THEME_LABEL";
+	public final static String EXTRA_INPUT_STRING = "com.example.spellthat.INPUT_STRING";
 	
 	ArrayList<Theme> themesList = new ArrayList<Theme>();
 	
@@ -119,9 +120,11 @@ public class MainActivity extends ActionBarActivity {
 	            button.setOnClickListener(
             		new View.OnClickListener() {
             		    public void onClick(View v) {
+            		    	EditText textField = (EditText)(getActivity().findViewById(R.id.word_to_spell));
             		    	Intent intent = new Intent(getActivity(), SpellingActivity.class);
             		    	intent.putExtra(EXTRA_THEME_ID, theme.getId());
             		    	intent.putExtra(EXTRA_THEME_LABEL, theme.getLabel());
+            		    	intent.putExtra(EXTRA_INPUT_STRING, textField.getText().toString());
             		    	startActivity(intent);
             		    	getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             		    }

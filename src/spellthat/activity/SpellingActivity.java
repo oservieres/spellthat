@@ -5,6 +5,7 @@ import com.example.spellthat.R;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,11 +57,12 @@ public class SpellingActivity extends ActionBarActivity {
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			Toast.makeText(getActivity(), "heyyy", Toast.LENGTH_SHORT/Toast.LENGTH_LONG).show();
-			View rootView = inflater.inflate(R.layout.fragment_spelling,
-					container, false);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			Intent intent = getActivity().getIntent();
+			String message = intent.getStringExtra(MainActivity.EXTRA_INPUT_STRING);
+
+			Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT/Toast.LENGTH_LONG).show();
+			View rootView = inflater.inflate(R.layout.fragment_spelling, container, false);
 			return rootView;
 		}
 	}
