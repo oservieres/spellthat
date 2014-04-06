@@ -25,9 +25,6 @@
 	        android:id="@+id/letters_list"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/activity_title"
-	        android:layout_below="@+id/activity_title"
-	        android:layout_marginTop="22dp"
 	        android:orientation="vertical" >
 	
         </LinearLayout>
@@ -41,6 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Epeller un autre nom" />
+        android:text="Epeler un autre nom" />
 
 </RelativeLayout>

@@ -1,12 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dictionary>
-    <theme id="1" label="Prénoms ridicules">
-        <word letter="a">Anatole</word>
-        <word letter="b">Bignou</word>
+    <theme id="1" label="Prénoms classiques">
+        <word letter="a">Amandine</word>
+        <word letter="b">Benoit</word>
+        <word letter="c">Christophe</word>
+        <word letter="d">Damien</word>
+        <word letter="e">Elodie</word>
+        <word letter="f">François</word>
+        <word letter="g">Gerard</word>
+        <word letter="h">Hortense</word>
+        <word letter="i">Ingrid</word>
+        <word letter="j">Julien</word>
+        <word letter="k">Katia</word>
+        <word letter="l">Laurie</word>
+        <word letter="m">Magali</word>
+        <word letter="n">Nicolas</word>
+        <word letter="o">Olivier</word>
+        <word letter="p">Patricia</word>
+        <word letter="q">Quentin</word>
+        <word letter="r">Robert</word>
+        <word letter="s">Sylvie</word>
+        <word letter="t">Thomas</word>
+        <word letter="u">Ursula</word>
+        <word letter="v">Véronique</word>
+        <word letter="w">William</word>
+        <word letter="x">Xavier</word>
+        <word letter="y">Yves</word>
+        <word letter="z">Zoé</word>
     </theme>
-    <theme id="2" label="Expressions du sud">
+    <theme id="2" label="Insultes méchantes">
         <word letter="a">Abruti</word>
+        <word letter="b">Boudin</word>
+        <word letter="c">Connasse</word>
+        <word letter="d">Débile</word>
+        <word letter="e">Enculé</word>
+        <word letter="f">Fiotte</word>
+        <word letter="g">Grosse merde</word>
+        <word letter="h">Ho le con !</word>
+        <word letter="i">Imbécile</word>
+        <word letter="j">Jean-Foutre</word>
+        <word letter="k">Kakou</word>
+        <word letter="l">Lopette</word>
+        <word letter="m">Merdeux</word>
+        <word letter="n">Naze</word>
+        <word letter="o">Ordure</word>
+        <word letter="p">Porcasse</word>
+        <word letter="q">Quel trou du cul !</word>
+        <word letter="r">Raclure de bidet</word>
+        <word letter="s">Sac à foutre</word>
+        <word letter="t">Ta race maudite</word>
+        <word letter="u">Un couillon</word>
+        <word letter="v">Vérue</word>
+        <word letter="w">Wow qu'il est con !</word>
+        <word letter="x">xylohone</word>
+        <word letter="y">zguèg</word>
+        <word letter="z">Zou</word>
+    </theme>
+    <theme id="3" label="Expressions du sud">
+        <word letter="a">Arapède</word>
         <word letter="b">Boulègue</word>
         <word letter="c">Caguer</word>
+        <word letter="d">Dégaine</word>
+        <word letter="e">Emboucaner</word>
+        <word letter="f">Filade</word>
+        <word letter="g">Gòbi</word>
+        <word letter="h">Ho fan de chichourle !</word>
+        <word letter="i">Inculé</word>
+        <word letter="j">Jambon</word>
+        <word letter="k">Kilo de mérou</word>
+        <word letter="l">Langaste</word>
+        <word letter="m">Moulon</word>
+        <word letter="n">Nifler</word>
+        <word letter="o">Ouaï</word>
+        <word letter="p">Pachole</word>
+        <word letter="q">Quiller</word>
+        <word letter="r">Ratchou</word>
+        <word letter="s">Séguer</word>
+        <word letter="t">Tanquée</word>
+        <word letter="u">Un tromblon</word>
+        <word letter="v">Vié</word>
+        <word letter="w">Wouah la gadji !</word>
+        <word letter="x">Xantia volée</word>
+        <word letter="y">Ya dégun</word>
+        <word letter="z">Zou</word>
     </theme>
 </dictionary>

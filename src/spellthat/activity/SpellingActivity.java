@@ -1,6 +1,5 @@
 package spellthat.activity;
 
-
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -19,6 +18,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -137,6 +137,7 @@ public class SpellingActivity extends ActionBarActivity {
 				TextView letterView = new TextView(activity);
 				letterView.setText(Character.toString(Character.toUpperCase(letter)));
 				letterView.setTextSize(50);
+				letterView.setTypeface(Typeface.MONOSPACE);
 				line.addView(letterView);
 				
 				TextView linkView = new TextView(activity);
