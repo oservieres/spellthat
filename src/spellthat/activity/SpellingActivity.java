@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -130,17 +131,36 @@ public class SpellingActivity extends ActionBarActivity {
 			LinearLayout lettersList = (LinearLayout)mainView.findViewById(R.id.letters_list);
 
 			for (int i = 0 ; i < inputString.length(); ++i) {
-				TextView line = new TextView(activity);
-				line.setLayoutParams(
-	            	new LayoutParams(
-	            		ViewGroup.LayoutParams.WRAP_CONTENT,
-	            		ViewGroup.LayoutParams.WRAP_CONTENT
-	            	)
-	            );
 				char letter = inputString.charAt(i);
-				line.setText(Character.toString(letter) + " comme " + activity.wordIndex.getWordByLetter(letter));
+				LinearLayout line = new LinearLayout(activity);
+				
+				TextView letterView = new TextView(activity);
+				letterView.setText(Character.toString(Character.toUpperCase(letter)));
+				letterView.setTextSize(50);
+				line.addView(letterView);
+				
+				TextView linkView = new TextView(activity);
+				linkView.setText(" comme ");
+				linkView.setTextSize(20);
+				line.addView(linkView);
+				
+				TextView wordView = new TextView(activity);
+				wordView.setText(activity.wordIndex.getWordByLetter(letter));
+				wordView.setTextSize(40);
+				line.addView(wordView);
+				
 				lettersList.addView(line);
 			}
+			
+			Button button = (Button)mainView.findViewById(R.id.back_to_main);
+			button.setOnClickListener(new View.OnClickListener() {
+			    @Override
+			    public void onClick(View v) {
+			    	Intent intent = new Intent(getActivity(), MainActivity.class);
+    		    	startActivity(intent);
+    		    	getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+			    }
+			});
 			
 			return mainView;
 		}

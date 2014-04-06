@@ -14,15 +14,33 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
-        android:id="@+id/letters_list"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/back_to_main"
+        android:layout_alignLeft="@+id/activity_title"
+        android:layout_below="@+id/activity_title" >
+
+	    <LinearLayout
+	        android:id="@+id/letters_list"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/activity_title"
+	        android:layout_below="@+id/activity_title"
+	        android:layout_marginTop="22dp"
+	        android:orientation="vertical" >
+	
+        </LinearLayout>
+
+	</ScrollView>
+
+    <Button
+        android:id="@+id/back_to_main"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/activity_title"
-        android:layout_below="@+id/activity_title"
-        android:layout_marginTop="22dp"
-        android:orientation="vertical" >
-
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Epeller un autre nom" />
 
 </RelativeLayout>
