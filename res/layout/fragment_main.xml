@@ -40,14 +40,13 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2" >
 
 	    <LinearLayout
 	        android:id="@+id/themes"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textView2"
-	        android:layout_below="@+id/textView2"
             android:orientation="vertical" >
         </LinearLayout>
     </ScrollView>

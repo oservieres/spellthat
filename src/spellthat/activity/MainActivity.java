@@ -27,6 +27,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import spellthat.entity.Theme;
 
 import com.example.spellthat.R;
@@ -110,7 +111,7 @@ public class MainActivity extends ActionBarActivity {
             
             View mainView = inflater.inflate(R.layout.fragment_main, container, false);
             LinearLayout themesLayout = (LinearLayout)mainView.findViewById(R.id.themes);
-        	
+
             Iterator<Theme> it = ((MainActivity)getActivity()).getThemesList().iterator();
             while (it.hasNext()) {
             	final Theme theme = it.next();
@@ -120,9 +121,14 @@ public class MainActivity extends ActionBarActivity {
             		new View.OnClickListener() {
             		    public void onClick(View v) {
             		    	EditText textField = (EditText)(getActivity().findViewById(R.id.word_to_spell));
+            		    	String inputValue = textField.getText().toString();
+            		    	if (inputValue.length() == 0) {
+            		    		Toast.makeText(getActivity(), "Veuillez renseigner votre nom !", 2000).show();
+            		    		return;
+            		    	}
             		    	Intent intent = new Intent(getActivity(), SpellingActivity.class);
             		    	intent.putExtra(EXTRA_THEME, theme);
-            		    	intent.putExtra(EXTRA_INPUT_STRING, textField.getText().toString());
+            		    	intent.putExtra(EXTRA_INPUT_STRING, inputValue);
             		    	startActivity(intent);
             		    	getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             		    }
