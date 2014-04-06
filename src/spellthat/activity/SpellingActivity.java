@@ -1,13 +1,24 @@
 package spellthat.activity;
 
 
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+
 import spellthat.entity.Theme;
+import spellthat.entity.WordIndex;
 
 import com.example.spellthat.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +34,7 @@ public class SpellingActivity extends ActionBarActivity {
 
 	private String inputString;
 	private Theme currentTheme; 
+	private WordIndex wordIndex;
 	
 	public Theme getCurrentTheme() {
 		return currentTheme;
@@ -30,6 +42,25 @@ public class SpellingActivity extends ActionBarActivity {
 	
 	public String getInputString() {
 		return inputString;
+	}
+	
+	protected void buildWordIndex() {
+		wordIndex = new WordIndex();
+		XPathFactory factory = XPathFactory.newInstance();
+	    XPath xPath = factory.newXPath();
+	    try {
+			NodeList words = (NodeList) xPath.evaluate(
+				"/dictionary/theme[@id=" + currentTheme.getId() + "]/word",
+				new InputSource(getResources().openRawResource(R.raw.themes)), 
+				XPathConstants.NODESET
+			);
+			for (int i = 0; i < words.getLength(); ++i) {
+				Element word = (Element) words.item(i);
+				wordIndex.add(word.getAttribute("letter").charAt(0), word.getTextContent());
+			}
+	    } catch (XPathExpressionException e1) {
+		} catch (NotFoundException e1) {
+		}
 	}
 	
 	@Override
@@ -41,6 +72,8 @@ public class SpellingActivity extends ActionBarActivity {
 		Intent intent = getIntent();
 		inputString = intent.getStringExtra(MainActivity.EXTRA_INPUT_STRING);
 		currentTheme = intent.getParcelableExtra(MainActivity.EXTRA_THEME);
+		
+		buildWordIndex();
 		
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
@@ -104,7 +137,8 @@ public class SpellingActivity extends ActionBarActivity {
 	            		ViewGroup.LayoutParams.WRAP_CONTENT
 	            	)
 	            );
-				line.setText(Character.toString(inputString.charAt(i)));
+				char letter = inputString.charAt(i);
+				line.setText(Character.toString(letter) + " comme " + activity.wordIndex.getWordByLetter(letter));
 				lettersList.addView(line);
 			}
 			

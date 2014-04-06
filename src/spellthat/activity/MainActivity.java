@@ -54,11 +54,7 @@ public class MainActivity extends ActionBarActivity {
 			    themesList.add(new Theme(Integer.valueOf(theme.getAttribute("id")), theme.getAttribute("label")));
 			}
 		} catch (XPathExpressionException e1) {
-			Log.e("HEYYY", e1.getMessage());
-			e1.printStackTrace();
 		} catch (NotFoundException e1) {
-			Log.e("HOOOOY", e1.getMessage());
-			e1.printStackTrace();
 		}
 	}
 
