@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import spellthat.entity.Theme;
 
-import com.example.spellthat.R;
+import com.spellthat.R;
 
 public class MainActivity extends ActionBarActivity {
 	
@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
 		XPathFactory factory = XPathFactory.newInstance();
 	    XPath xPath = factory.newXPath();
 	    try {
-			NodeList themes = (NodeList) xPath.evaluate("/dictionary/theme", new InputSource(getResources().openRawResource(R.raw.themes)), XPathConstants.NODESET);
+			NodeList themes = (NodeList) xPath.evaluate("/dictionary/theme", new InputSource(getResources().openRawResource(R.raw.words)), XPathConstants.NODESET);
 			for (int i = 0; i < themes.getLength(); ++i) {
 			    Element theme = (Element) themes.item(i);
 			    themesList.add(new Theme(Integer.valueOf(theme.getAttribute("id")), theme.getAttribute("label")));

@@ -11,7 +11,7 @@ public class WordIndex {
 	}
 	
 	public String getWordByLetter(Character letter) {
-		String word = map.get(letter);
+		String word = map.get(Character.toLowerCase(letter));
 		if (word == null) {
 			word = "n'importe quoi";
 		}

@@ -12,7 +12,7 @@ import org.xml.sax.InputSource;
 import spellthat.entity.Theme;
 import spellthat.entity.WordIndex;
 
-import com.example.spellthat.R;
+import com.spellthat.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -52,7 +52,7 @@ public class SpellingActivity extends ActionBarActivity {
 	    try {
 			NodeList words = (NodeList) xPath.evaluate(
 				"/dictionary/theme[@id=" + currentTheme.getId() + "]/word",
-				new InputSource(getResources().openRawResource(R.raw.themes)), 
+				new InputSource(getResources().openRawResource(R.raw.words)), 
 				XPathConstants.NODESET
 			);
 			for (int i = 0; i < words.getLength(); ++i) {
