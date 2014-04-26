@@ -50,9 +50,10 @@ public class SpellingActivity extends ActionBarActivity {
 		XPathFactory factory = XPathFactory.newInstance();
 	    XPath xPath = factory.newXPath();
 	    try {
+	    	int fileId = getResources().getIdentifier("words_" + Integer.toString(currentTheme.getId()), "raw", getPackageName());
 			NodeList words = (NodeList) xPath.evaluate(
-				"/dictionary/theme[@id=" + currentTheme.getId() + "]/word",
-				new InputSource(getResources().openRawResource(R.raw.words)), 
+				"/words/word",
+				new InputSource(getResources().openRawResource(fileId)), 
 				XPathConstants.NODESET
 			);
 			for (int i = 0; i < words.getLength(); ++i) {
@@ -88,7 +89,19 @@ public class SpellingActivity extends ActionBarActivity {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.spelling, menu);
-		return true;
+		
+		/*
+		Button button = (Button)mainView.findViewById(R.id.back_to_main);
+		button.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	Intent intent = new Intent(getActivity(), MainActivity.class);
+		    	startActivity(intent);
+		    	getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+		    }
+		});*/
+		
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
@@ -152,16 +165,6 @@ public class SpellingActivity extends ActionBarActivity {
 				
 				lettersList.addView(line);
 			}
-			
-			Button button = (Button)mainView.findViewById(R.id.back_to_main);
-			button.setOnClickListener(new View.OnClickListener() {
-			    @Override
-			    public void onClick(View v) {
-			    	Intent intent = new Intent(getActivity(), MainActivity.class);
-    		    	startActivity(intent);
-    		    	getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-			    }
-			});
 			
 			return mainView;
 		}

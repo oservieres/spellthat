@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    
     tools:context="spellthat.SpellingActivity$PlaceholderFragment" >
 
     <TextView
@@ -17,7 +18,6 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/back_to_main"
         android:layout_alignLeft="@+id/activity_title"
         android:layout_below="@+id/activity_title" >
 
@@ -30,14 +30,5 @@
         </LinearLayout>
 
 	</ScrollView>
-
-    <Button
-        android:id="@+id/back_to_main"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Epeler un autre nom" />
 
 </RelativeLayout>

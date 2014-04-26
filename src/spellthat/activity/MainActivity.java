@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
 		XPathFactory factory = XPathFactory.newInstance();
 	    XPath xPath = factory.newXPath();
 	    try {
-			NodeList themes = (NodeList) xPath.evaluate("/dictionary/theme", new InputSource(getResources().openRawResource(R.raw.words)), XPathConstants.NODESET);
+			NodeList themes = (NodeList) xPath.evaluate("/themes/theme", new InputSource(getResources().openRawResource(R.raw.themes)), XPathConstants.NODESET);
 			for (int i = 0; i < themes.getLength(); ++i) {
 			    Element theme = (Element) themes.item(i);
 			    themesList.add(new Theme(Integer.valueOf(theme.getAttribute("id")), theme.getAttribute("label")));
