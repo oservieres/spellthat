@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">On se l\'épèle</string>
+    <string name="app_name">On se l\'épelle</string>
     <string name="action_settings">Paramètres</string>
-    <string name="title_activity_spelling">On se l\'épèle</string>
+    <string name="title_activity_spelling">On se l\'épelle</string>
 </resources>
