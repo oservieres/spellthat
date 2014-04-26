@@ -90,17 +90,6 @@ public class SpellingActivity extends ActionBarActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.spelling, menu);
 		
-		/*
-		Button button = (Button)mainView.findViewById(R.id.back_to_main);
-		button.setOnClickListener(new View.OnClickListener() {
-		    @Override
-		    public void onClick(View v) {
-		    	Intent intent = new Intent(getActivity(), MainActivity.class);
-		    	startActivity(intent);
-		    	getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-		    }
-		});*/
-		
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -149,22 +138,32 @@ public class SpellingActivity extends ActionBarActivity {
 				
 				TextView letterView = new TextView(activity);
 				letterView.setText(Character.toString(Character.toUpperCase(letter)));
-				letterView.setTextSize(50);
+				letterView.setTextSize(35);
 				letterView.setTypeface(Typeface.MONOSPACE);
 				line.addView(letterView);
 				
 				TextView linkView = new TextView(activity);
 				linkView.setText(" comme ");
-				linkView.setTextSize(20);
+				linkView.setTextSize(10);
 				line.addView(linkView);
 				
 				TextView wordView = new TextView(activity);
 				wordView.setText(activity.wordIndex.getWordByLetter(letter));
-				wordView.setTextSize(40);
+				wordView.setTextSize(20);
 				line.addView(wordView);
 				
 				lettersList.addView(line);
 			}
+			
+			Button button = (Button)mainView.findViewById(R.id.back_to_main);
+			button.setOnClickListener(new View.OnClickListener() {
+			    @Override
+			    public void onClick(View v) {
+			    	Intent intent = new Intent(getActivity(), MainActivity.class);
+			    	startActivity(intent);
+			    	getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+			    }
+			});
 			
 			return mainView;
 		}
